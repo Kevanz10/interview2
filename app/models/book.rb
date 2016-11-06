@@ -3,4 +3,6 @@ class Book < ApplicationRecord
 	validates :pages, numericality: { greater_than_or_equal_to: 0 }
 
 	belongs_to :publisher_house
+
+	has_and_belongs_to_many :authors
 end
