@@ -1,0 +1,61 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title text-center">Book profile</h3>
+  </div>
+  <div class="row">
+    <div class="col-md-3 col-lg-3 " align="center">
+      <%= image_tag(@book.avatar, :class => "img-circle img-responsive")%>
+    </div> 
+  <div class="panel-body">
+    <div class="row">
+      <div class=" col-md-9 col-lg-9 "> 
+        <%= form_for(@book) do |f| %>
+          <table class="table table-user-information">
+            <tbody>
+              <tr>
+                <% if @book.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
+                    <ul>
+                    <% @book.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+              </tr>
+              <tr>
+                <td><%= f.label :title %></td>
+                <td><%= f.text_field :title, class: 'form-control' %></td>
+              </tr>
+              <tr>
+                <td><%= f.label :pages %></td>
+                <td><%= f.text_field :pages, class: 'form-control' %></td>
+              </tr>
+              <tr>
+                <td><%= f.label :cover %></td>
+                <td><%= f.text_field :cover, class: 'form-control' %></td>
+              </tr>
+              <tr>
+                <td><%= f.label :published_at %></td>
+                <td><%= f.date_field :published_at %></td>
+              </tr>
+              <tr>
+                <td><%= f.label :publisher_house, "Published House" %></td>
+                <td><%= f.collection_select :publisher_house_id, PublisherHouse.all, :id, :name, prompt: true %></td>
+              </tr>
+              <tr>
+                <td><%= f.label :avatar, "Change Book's cover image" %></td>
+                <td><%= f.file_field :avatar %></td>
+              </tr>
+              <tr class="top">
+                <td><%= f.submit class: 'btn btn-success' %></td>
+                <td><%= link_to 'Cancel', book_path(@book), class: 'btn btn-default'%></td>
+              </tr>
+            </tbody>
+          </table>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,34 +1,43 @@
 <div class="panel panel-info">
   <div class="panel-heading">
-    <h3 class="panel-title text-center">Book profile</h3>
+    <h3 class="panel-title text-center">Book Profile</h3>
   </div>
   <div class="panel-body">
     <div class="row">
+      <div class="col-md-3 col-lg-3 " align="center">
+        <%= image_tag(@book.avatar, :class => "img-circle img-responsive")%> 
+      </div>
       <div class=" col-md-9 col-lg-9 "> 
         <table class="table table-user-information">
           <tbody>
             <tr>
-              <td><b>Title:</b></td>
-              <td><p><%=@book.title%></p></td>
+              <td>Title:</td>
+              <td><%=@book.title%></p></td>
             </tr>
             <tr>
-              <td><b>Pages:</b></td>
-              <td><p><%=@book.pages%></p></td>
+              <td>Pages:</td>
+              <td><%=@book.pages%></p></td>
             </tr>
-             <tr>
-              <td><b>Title:</b></td>
-              <td><p><%=@book.cover%></p></td>
+            <tr>
+              <td>Cover:</td>
+              <td><%=link_to "Book Url", @book.cover %></td>
             </tr>
-           
+            <tr>
+              <td>Published at:</b></td>
+              <td><%=@book.published_at%></p></td>
+            </tr>
+            <tr>
+              <td>Published By:</td>
+              <td><p><%=@book.publisher_house.name%></p></td>
+            </tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
   <div class="panel-footer text-center">
-    <%= link_to edit_book_path(@book) do %>
-      Edit User
-      <i class="glyphicon glyphicon-edit"></i> 
-    <% end %> 
+    <%= link_to 'Edit Book', edit_book_path(@book), class: 'btn btn-default'%>
+    <%= link_to 'Delete', book_path, class:'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Cancel', books_path, class:'btn btn-default'%>
   </div>
 </div>
