@@ -1,1 +1,34 @@
-show.html.erb
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title text-center">Book profile</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class=" col-md-9 col-lg-9 "> 
+        <table class="table table-user-information">
+          <tbody>
+            <tr>
+              <td><b>Title:</b></td>
+              <td><p><%=@book.title%></p></td>
+            </tr>
+            <tr>
+              <td><b>Pages:</b></td>
+              <td><p><%=@book.pages%></p></td>
+            </tr>
+             <tr>
+              <td><b>Title:</b></td>
+              <td><p><%=@book.cover%></p></td>
+            </tr>
+           
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer text-center">
+    <%= link_to edit_book_path(@book) do %>
+      Edit User
+      <i class="glyphicon glyphicon-edit"></i> 
+    <% end %> 
+  </div>
+</div>

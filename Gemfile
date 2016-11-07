@@ -4,6 +4,9 @@ source 'https://rubygems.org'
 gem 'bootstrap-sass', '~> 3.3.6'
 #Gem for search in forms  
 gem 'ransack'
+#Gem for uploading files
+gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'

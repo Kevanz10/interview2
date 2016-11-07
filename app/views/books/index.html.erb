@@ -1,4 +1,4 @@
-<%= search_form_for @search, html: {class: "form-inline"} do |f| %>
+<%= search_form_for @search, html: {class: "form-inline text-right"} do |f| %>
   <div class="form-group">
     <%= f.label :title_cont, "Book Title" %>
     <%= f.search_field :title_cont, class: 'form-control' %>
@@ -7,16 +7,16 @@
     <%= f.label :publisher_house_name_cont, "Publisher House name" %>
     <%= f.search_field :publisher_house_name_cont, class: 'form-control' %>
   </div>
-  <%= f.submit "search", class: 'btn btn-default' %>
+  <%= f.submit "Search", class: 'btn btn-default' %>
 <% end %>
 
-<div>
+<div class= 'top text-center'>
   <table class="table">
     <thead>
       <tr class= 'row'>
-        <th class= 'col-md-4'>Title</th>
-        <th class= 'col-md-4'>Publisher House</th>
-        <th class= 'col-md-4'>Delete button</th>
+        <th class= 'col-md-4 text-center'>Title</th>
+        <th class= 'col-md-4 text-center'>Publisher House</th>
+        <th class= 'col-md-4 text-center'>Delete button</th>
       </tr>
     </thead>
 
