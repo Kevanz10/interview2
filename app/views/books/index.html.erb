@@ -1,4 +1,16 @@
-<div class="container">
+<%= search_form_for @search, html: {class: "form-inline"} do |f| %>
+  <div class="form-group">
+    <%= f.label :title_cont, "Book Title" %>
+    <%= f.search_field :title_cont, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :publisher_house_name_cont, "Publisher House name" %>
+    <%= f.search_field :publisher_house_name_cont, class: 'form-control' %>
+  </div>
+  <%= f.submit "search", class: 'btn btn-default' %>
+<% end %>
+
+<div>
   <table class="table">
     <thead>
       <tr class= 'row'>
@@ -9,7 +21,7 @@
     </thead>
 
     <tbody>
-      <% @books.each do |book| %>
+      <% @booksearch.each do |book| %>
         <tr class= 'row'>
          <td class= 'col-md-4'>
             <%= link_to book_path(book) do%>
@@ -17,7 +29,7 @@
             <%end%>
          </td>
           <td class= 'col-md-4'><%= book.publisher_house.name %></td>
-          <td class= 'col-md-4'><%= link_to 'Destroy', book_path(book), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class= 'col-md-4'><%= link_to 'Delete', book_path(book), class:'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>

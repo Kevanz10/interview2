@@ -4,6 +4,8 @@ class BooksController < ApplicationController
   # GET /books
   def index
     @books = Book.all.order(:title)
+    @search = Book.ransack(params[:q])
+    @booksearch = @search.result.includes(:publisher_house).order(:title)
   end
 
   # GET /books/1

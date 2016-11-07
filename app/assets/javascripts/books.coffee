@@ -18,7 +18,7 @@ $ ->
                    <a class="close" data-dismiss="modal">×</a>
                    <h3 class='text-center'>Are you sure?</h3>
                  </div>
-                 <div class="modal-footer">
+                 <div class="text-center modal-body">
                    <a data-dismiss="modal" class="btn btn-primary">No</a>
                    <a data-dismiss="modal" class="btn btn-danger confirm">Yes</a>
                  </div>
