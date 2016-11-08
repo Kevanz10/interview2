@@ -1,0 +1,23 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title text-center">Publisher House</h3>
+  </div>
+
+  <div class="panel-body">
+    <%= form_for(@house) do |f| %>
+    	<div class='row text-center'>
+    		<div class="col-md-6 col-md-offset-3">
+    			<%= f.label :name %>
+    			<%= f.text_field :name, class: 'form-control' %>
+    		</div>
+    	</div>
+    	<div class='text-center top'>
+    		<%= f.submit class: 'btn btn-success' %>
+         <%if params[:action] == "edit"%>
+          <%= link_to 'Cancel', publisher_house_path(@house), class: 'btn btn-default'%>
+        <%end%>
+    	</div>
+
+    <%end%>   
+  </div>  
+</div>

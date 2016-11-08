@@ -3,7 +3,7 @@ class PublisherHousesController < ApplicationController
 
   # GET /houses
   def index
-    @houses = PublisherHouse.all
+    @houses = PublisherHouse.all.order(:name)
   end
 
   # GET /houses/1
@@ -25,7 +25,7 @@ class PublisherHousesController < ApplicationController
 
     respond_to do |format|
       if @house.save
-        format.html { redirect_to @house, notice: 'House was successfully created.' }
+        format.html { redirect_to publisher_houses_path, notice: 'House was successfully created.' }
         format.json { render :show, status: :created, location: @house }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class PublisherHousesController < ApplicationController
   def destroy
     @house.destroy
     respond_to do |format|
-      format.html { redirect_to houses_url, notice: 'House was successfully destroyed.' }
+      format.html { redirect_to publisher_houses_path, notice: 'House was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

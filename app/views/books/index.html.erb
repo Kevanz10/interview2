@@ -23,13 +23,14 @@
     <tbody>
       <% @booksearch.each do |book| %>
         <tr class= 'row'>
-         <td class= 'col-md-4'>
+          <td class= 'col-md-4'>
             <%= link_to book_path(book) do%>
               <%= book.title %>
             <%end%>
-         </td>
+          </td>
           <td class= 'col-md-4'><%= book.publisher_house.name %></td>
           <td class= 'col-md-4'><%= link_to 'Delete', book_path(book), class:'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class= 'col-md-4'><%= link_to 'Cancel', book_path(book), class:'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>

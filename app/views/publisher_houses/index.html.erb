@@ -1,0 +1,23 @@
+<div class= 'top text-center'>
+  <table class="table">
+    <thead>
+      <tr class= 'row'>
+        <th class= 'col-md-4 text-center'>Title</th>
+        <th class= 'col-md-4 text-center'>Delete button</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @houses.each do |pbhouse| %>
+        <tr class= 'row'>
+         <td class= 'col-md-4'>
+            <%= link_to publisher_house_path(pbhouse) do%>
+              <%= pbhouse.name %>
+            <%end%>
+         </td>
+          <td class= 'col-md-4'><%= link_to 'Delete', publisher_house_path(pbhouse), class:'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
