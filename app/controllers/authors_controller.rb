@@ -3,7 +3,7 @@ class AuthorsController < ApplicationController
 
   # GET /authors
   def index
-    @author = Author.all
+    @authors = Author.all.order(first_name: :asc, last_name: :asc)
   end
 
   # GET /authors/1
@@ -24,7 +24,7 @@ class AuthorsController < ApplicationController
     @author = Author.new(author_params)
 
     respond_to do |format|
-      if @author .save
+      if @author.save
         format.html { redirect_to @author, notice: 'Author was successfully created.' }
         format.json { render :show, status: :created, location: @author }
       else
@@ -64,6 +64,6 @@ class AuthorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def author_params
-      params.require(:author).permit(:title, :pages, :cover, :publisher_house_id)
+      params.require(:author).permit(:first_name, :last_name, :birthday)
     end
 end

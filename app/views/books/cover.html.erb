@@ -1,0 +1,10 @@
+<div class= 'top text-center'>
+  <h3>Book Cover</h3>
+	  <div class= 'row'>
+	    <% @books.each do |book| %>   	
+    		<div class="col-md-3 top">
+    			<%= image_tag(book.avatar, :class => "img-circle img-responsive")%></li>
+    		</div>
+	    <% end %>
+	  </div>
+</div>

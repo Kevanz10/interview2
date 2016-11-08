@@ -1,0 +1,23 @@
+<%= form_for(@author) do |f| %>
+    	<div class='row text-center'>
+    		<div class="col-md-6 col-md-offset-3">
+    			<%= f.label :first_name %>
+    			<%= f.text_field :first_name, class: 'form-control' %>
+    		</div>
+        <div class="col-md-6 col-md-offset-3 top">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, class: 'form-control' %>
+        </div>
+        <div class="col-md-6 col-md-offset-3 top">
+          <%= f.label :birthday, class: 'center-block' %>
+          <%= f.date_field :birthday, class: 'form-control' %>
+        </div>
+    	</div>
+    	<div class='text-center top'>
+    		<%= f.submit class: 'btn btn-success' %>
+         <%if params[:action] == "edit"%>
+          <%= link_to 'Cancel', publisher_house_path(@house), class: 'btn btn-default'%>
+        <%end%>
+    	</div>
+
+    <%end%> 

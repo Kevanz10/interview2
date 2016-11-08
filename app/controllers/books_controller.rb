@@ -1,6 +1,11 @@
 class BooksController < ApplicationController
 	before_action :set_book, only: [:show, :edit, :update, :destroy]
 
+  #Get /bookscover
+  def cover
+    @books = Book.all
+  end
+
   # GET /books
   def index
     @books = Book.all.order(:title)

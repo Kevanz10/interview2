@@ -1,0 +1,23 @@
+<div class= 'top text-center'>
+  <table class="table">
+    <thead>
+      <tr class= 'row'>
+        <th class= 'col-md-4 text-center'>First Name & Last Name</th>
+        <th class= 'col-md-4 text-center'>Delete button</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @authors.each do |author| %>
+        <tr class= 'row'>
+          <td class= 'col-md-4'>
+            <%= link_to author_path(author) do%>
+              <%= author.first_name %> <%= author.last_name %>
+            <%end%>
+          </td>
+          <td class= 'col-md-4'><%= link_to 'Delete', author_path(author), class:'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
